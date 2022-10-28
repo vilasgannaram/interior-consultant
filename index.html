@@ -7,13 +7,10 @@
       content="width=device-width, initial-scale=1,maximum-scale=5"
     />
     <link rel="shortcut icon" href="devchallenges.png" type="image/x-icon" />
-    <link
-      rel="shortcut icon"
-      type="image/x-icon"
-      href="https://devchallenges.io/"
-    />
+
     <link rel="stylesheet" href="styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="app.js" defer></script>
 
     <script>
       tailwind.config = {
@@ -42,100 +39,129 @@
 
     <title>Interior Consultant</title>
   </head>
-  <body class="bg-primaryBlack text-[white]">
-    <div class="w-[90%] mx-auto lg:w-[85%]">
+  <body class="bg-black text-[white]">
+    <!-- TOP CONTAINER -->
+    <div class="w-[90%] mx-auto lg:w-[80%]">
       <!-- HEADER -->
-      <header class="mt-5 flex justify-between lg:mt-12">
-        <div class="font-crimsonPro font-extralight max-w-max">
-          <h1 class="p-3 text-[14px] leading-4 uppercase border border-[white]">
+      <header class="mt-5 flex justify-between items-center">
+        <div id="logo" class="px-2.5 py-2 border border-[white]">
+          <h1
+            class="font-crimsonPro font-extralight text-[14px] leading-4 uppercase"
+          >
             This Interior
           </h1>
         </div>
 
-        <!-- Mobile Nav -->
-        <nav class="lg:hidden">
-          <div class="h-1 w-9 bg-lightGray"></div>
-          <div class="my-1.5 h-1 w-9 bg-lightGray"></div>
-          <div class="h-1 w-9 bg-lightGray"></div>
+        <!-- MOBILE NAV (HAMBURGER MENU) -->
+        <nav id="hamburger-menu" class="cursor-pointer lg:hidden">
+          <div id="bar-1" class="w-10 h-1 bg-[white]"></div>
+          <div id="bar-2" class="w-10 h-1 bg-[white] my-1.5"></div>
+          <div id="bar-3" class="w-10 h-1 bg-[white]"></div>
         </nav>
 
-        <!-- Desktop nav -->
+        <!-- DESKTOP NAV -->
         <nav class="w-[40%] hidden lg:block">
           <ul class="flex justify-between font-montserrat font-medium">
-            <li class="py-2 font-bold border-b-2 border-[white]">Home</li>
-            <li class="py-2">Collection</li>
-            <li class="py-2">About</li>
-            <li class="py-2">Content</li>
+            <li class="py-2"><a class="home" href="#">Home</a></li>
+            <li class="py-2"><a href="#">Collection</a></li>
+            <li class="py-2"><a href="#">About</a></li>
+            <li class="py-2"><a href="#">Contact</a></li>
           </ul>
         </nav>
       </header>
 
-      <!-- MAIN -->
-      <main class="mt-10 lg:flex justify-between items-center lg:mt-32">
-        <!-- TEXT CONTAINER -->
-        <article class="lg:w-[410px] lg:pb-16">
-          <h2
-            class="font-lora font-medium text-[36px] leading-[46px] lg:text-[48px] lg:leading-[66px]"
+      <!-- MOBILE NAV LIST -->
+      <nav id="mobile-nav" class="h-[90vh] relative hidden">
+        <ul
+          class="font-montserrat font-medium text-[18px] leading-[22px] absolute top-[50%] left-[50%] text-center -translate-x-[50%] -translate-y-[50%]"
+        >
+          <li
+            class="py-4 px-0 border-b-2 font-bold max-w-min text-center mx-auto"
           >
-            Modern interior
-          </h2>
-          <p
-            class="mt-6 w-[250px] font-montserrat font-normal text-[14px] leading-4 lg:w-[410px] lg:text-[24px] lg:leading-[29px] lg:mt-10"
-          >
-            A full-Service residential & commercial interior design and staging
-            company offering professional organizing & eco-services.
-          </p>
-          <p
-            class="mt-6 font-montserrat font-bold text-[14px] leading-4 lg:mt-12 lg:text-[18px] lg:leading-[22px]"
-          >
-            Read more <span>---></span>
-          </p>
-        </article>
+            <a class="home" href="#">Home</a>
+          </li>
+          <li class="mt-8 py-4"><a href="#">Collection</a></li>
+          <li class="mt-8 py-4"><a href="#">About</a></li>
+          <li class="mt-8 py-4"><a href="#">Contact</a></li>
+        </ul>
+      </nav>
 
-        <!-- IMAGE CONTAINER -->
-        <article class="mt-9 lg:w-[50%]">
-          <div>
-            <img src="photo1.png" alt="Interior Design" />
-          </div>
+      <!-- CONTAINER => wraps only main and footer -->
+      <div id="container" class="">
+        <!-- MAIN -->
+        <main class="mt-12 lg:flex justify-between items-center">
+          <!-- TEXT CONTAINER -->
+          <article>
+            <h2 class="font-lora font-medium text-[36px] leading-[46px]">
+              Modern interior
+            </h2>
+            <div
+              class="mt-7 max-w-[250px] font-montserrat text-[14px] leading-4"
+            >
+              <p class="font-normal">
+                A full-Service residential & commercial interior design and
+                staging company offering professional organizing & eco-services.
+              </p>
+              <p class="mt-7 font-bold">
+                Read more <span class="pl-3 after:content-['🠒']"></span>
+              </p>
+            </div>
+          </article>
 
-          <!-- PROFILE CARD -->
-          <div
-            class="w-[80%] max-w-[410px] bg-primaryBlack shadow-lg shadow-[rgba(0,0,0,0.25)] -translate-y-14 translate-x-12 lg:-translate-y-16 lg:translate-x-[50%] xl:translate-x-[100%]"
-          >
-            <!-- INNER DIV -->
-            <div class="flex p-4 items-center">
-              <!-- PROFILE PIC -->
-              <div class="w-14">
-                <img
-                  class="rounded-[50%] object-center"
-                  src="photo2.png"
-                  alt="Aliza Webber"
-                />
+          <!-- IMAGE CONTAINER -->
+          <article class="mt-7 lg:w-[60%] max-w-[820px]">
+            <div class="relative">
+              <div>
+                <img class="" src="photo1.png" alt="interior design" />
               </div>
 
-              <!-- SIDE TEXT -->
-              <div class="pl-5 font-montserrat font-medium">
-                <h3 class="text-[14px] leading-4">Aliza Webber</h3>
-                <p class="mt-1 text-[10px] leading-3">Interior designer</p>
+              <!-- PROFILE CARD CONTAINER -->
+              <div class="w-[80%] max-w-[300px] absolute right-5 -bottom-16">
+                <!-- INNER CONTAINER -->
+                <div
+                  class="pl-3 py-4 shadow shadow-[rgba(0,0,0,0.25)] bg-black"
+                >
+                  <!-- UPPER CONTENT -->
+                  <div class="flex items-center">
+                    <div class="w-[50px]">
+                      <img
+                        class="rounded-[50%]"
+                        src="photo2.png"
+                        alt="Aliza Webber"
+                      />
+                    </div>
+                    <div
+                      class="pl-5 font-montserrat font-medium text-[12px] leading-[14.63px]"
+                    >
+                      <h3 class="mb-1.5">Aliza Webber</h3>
+                      <p class="text-gray3 text-[10px] leading-3">
+                        Interior designer
+                      </p>
+                    </div>
+                  </div>
+                  <!-- LOWER CONTENT -->
+                  <div class="pl-1 mt-2 w-[210px]">
+                    <h2 class="font-lora font-bold text-[18px] leading-6">
+                      Designed in 2020 by Aliza Webber
+                    </h2>
+                  </div>
+                </div>
               </div>
             </div>
+          </article>
+        </main>
 
-            <!-- MAIN TEXT -->
-            <div class="px-4 pb-5 font-lora font-bold max-w-[210px]">
-              <h2 class="text-[18px] leading-6">
-                Designed in 2020 by Aliza Webber
-              </h2>
-            </div>
-          </div>
-        </article>
-      </main>
-
-      <!-- FOOTER -->
-      <footer class="mt-14 mb-4 font-montserrat font-medium text-center">
-        <p class="text-[14px] leading-4">
-          created by vilasgannaram - devChallenges.io
-        </p>
-      </footer>
+        <!-- FOOTER -->
+        <footer class="mt-40 mb-5 font-montserrat font-bold text-center">
+          <p class="text-gray text-[14px] leading-4">
+            created by
+            <a href="https://devchallenges.io/portfolio/vilasgannaram"
+              >vilasgannaram</a
+            >
+            - devChallenges.io
+          </p>
+        </footer>
+      </div>
     </div>
   </body>
 </html>
